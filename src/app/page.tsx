@@ -17,12 +17,7 @@ export default function Home() {
   return (
     <>
       <main className="p-2 py-4">
-        <CldUploadButton
-          uploadPreset="mtqqcrcw"
-          onUpload={(result: UploadResult) => {
-            setimageId(result.info.public_id)
-          }}
-        />
+      <h1 className='text-4xl font-bold '>All Photos</h1>
         {imageId && (
           <CldImage
             width="300"

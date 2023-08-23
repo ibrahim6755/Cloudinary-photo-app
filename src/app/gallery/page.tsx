@@ -37,6 +37,7 @@ export default async function Gallery() {
                         <CloudinaryImage 
                         key={result.public_id}
                         src={result.public_id}
+                        publicId = {result.public_id}
                         alt="this is an image"
                         height="300"
                         width="400"
