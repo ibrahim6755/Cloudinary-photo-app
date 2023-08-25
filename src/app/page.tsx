@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <main className="p-2 py-4">
-      <h1 className='text-4xl font-bold '>All Photos</h1>
+      <h1 className='text-4xl font-bold '> Photos Gallery</h1>
         {imageId && (
           <CldImage
             width="300"
