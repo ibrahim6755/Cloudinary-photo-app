@@ -1,6 +1,5 @@
 "use client"
 import { useState } from 'react'
-import { CldUploadButton } from 'next-cloudinary';
 import { CldImage } from 'next-cloudinary';
 
 
@@ -27,6 +26,8 @@ export default function Home() {
             alt="Description of my image"
           />
         )}
+        <h4 className='mt-14 mb-4'>Want to upload go to gallery..!</h4>
+        <a href="/gallery" className='font-bold text-blue-900 hover:underline'>Gallery</a>
 
       </main>
     </>
