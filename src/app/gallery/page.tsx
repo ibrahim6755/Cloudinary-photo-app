@@ -32,7 +32,7 @@ export default async function Gallery() {
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-4 mt-14">
-                {
+                {/* {
                     results.resources.map((result) => (
                         <CloudinaryImage 
                         key={result.public_id}
@@ -44,7 +44,7 @@ export default async function Gallery() {
                         />
 
                     ))
-                }
+                } */}
 
             </div>
         </section>
