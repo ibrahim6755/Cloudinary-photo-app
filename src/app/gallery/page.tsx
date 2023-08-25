@@ -1,21 +1,21 @@
 import React from 'react'
-import UploadButton from './upload-button'
-import cloudinary from 'cloudinary'
-import CloudinaryImage from './cloudinary-image';
+// import UploadButton from './upload-button'
+// import cloudinary from 'cloudinary'
+// import CloudinaryImage from './cloudinary-image';
 
 
 
 export default async function Gallery() {
 
-    type SearchResult = {
-        public_id: string
-    };
+    // type SearchResult = {
+    //     public_id: string
+    // };
 
-    const results = (await cloudinary.v2.search
-        .expression('resource_type:image')
-        .sort_by('created_at', 'desc')
-        .max_results(20)
-        .execute()) as { resources: SearchResult[] };
+    // const results = (await cloudinary.v2.search
+    //     .expression('resource_type:image')
+    //     .sort_by('created_at', 'desc')
+    //     .max_results(20)
+    //     .execute()) as { resources: SearchResult[] };
 
 
     return (

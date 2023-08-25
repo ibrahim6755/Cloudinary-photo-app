@@ -1,7 +1,7 @@
 "use client"
-import React from 'react';
-import { CldUploadButton } from 'next-cloudinary';
-import { UploadResult } from '../page';
+// import React from 'react';
+// import { CldUploadButton } from 'next-cloudinary';
+// import { UploadResult } from '../page';
 import {useRouter} from 'next/navigation'
 
 function UploadButton() {
