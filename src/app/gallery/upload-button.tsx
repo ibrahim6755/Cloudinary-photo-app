@@ -6,14 +6,15 @@ import {useRouter} from 'next/navigation'
 
 function UploadButton() {
     const router = useRouter()
-    return (
-        <CldUploadButton
-            uploadPreset="mtqqcrcw"
-            onUpload={(result: UploadResult) => {
-                router.refresh()
-            }}
-        />
-    );
+    // return (
+    //     <CldUploadButton
+    //         uploadPreset="mtqqcrcw"
+    //         onUpload={(result: UploadResult) => {
+    //             router.refresh()
+    //         }}
+    //     />
+        
+    // );
 }
 
 export default UploadButton;
