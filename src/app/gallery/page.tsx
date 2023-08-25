@@ -5,7 +5,7 @@ import React from 'react'
 
 
 
-export default async function Gallery() {
+export default function Gallery() {
 
     // type SearchResult = {
     //     public_id: string
