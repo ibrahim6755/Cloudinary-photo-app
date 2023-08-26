@@ -17,7 +17,7 @@ export default function Home() {
       <main className="p-2 py-4">
       <h1 className='text-4xl font-bold '> Photos Gallery</h1>
         <h4 className='mt-14 mb-4'>Want to upload go to gallery..!</h4>
-        {/* <a href="/gallery" className='font-bold text-blue-900 hover:underline'>Gallery</a> */}
+        <a href="/gallery" className='font-bold text-blue-900 hover:underline'>Gallery</a>
 
       </main>
     </>
