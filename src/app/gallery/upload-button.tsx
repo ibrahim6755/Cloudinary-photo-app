@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { CldUploadButton } from 'next-cloudinary';
+import  {UploadResult}  from '../page';
 import {useRouter} from 'next/navigation'
 
 function UploadButton() {
@@ -8,9 +9,8 @@ function UploadButton() {
     return (
         <CldUploadButton
             uploadPreset="mtqqcrcw"
-            onUpload={(result) => {
+            onUpload={(result:UploadResult) => {
                 router.refresh()
-                console.log(result)
                 router.refresh();
             }}
         />
