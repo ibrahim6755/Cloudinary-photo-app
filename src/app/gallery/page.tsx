@@ -1,4 +1,4 @@
-import React from 'react'
+
 import UploadButton from './upload-button'
 import cloudinary from 'cloudinary'
 import CloudinaryImage from './cloudinary-image';
