@@ -11,7 +11,6 @@ function UploadButton() {
             uploadPreset="mtqqcrcw"
             onUpload={(result:UploadResult) => {
                 router.refresh()
-                router.refresh();
             }}
         />
     );
