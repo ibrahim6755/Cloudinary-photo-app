@@ -1,7 +1,6 @@
 "use client"
 import { useState } from 'react'
 import { CldImage } from 'next-cloudinary';
-import {type} from 'os'
 
 
 export type UploadResult = {
