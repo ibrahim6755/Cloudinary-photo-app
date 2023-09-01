@@ -7,35 +7,38 @@ import { SearchResult } from "./page"
 import { FullHeart } from "@/components/icons/fullHeart"
 
 
-export function CloudinaryImage(props :any & SearchResult) {
+export function CloudinaryImage(props: any & { imageData: SearchResult }) {
 
-    const [transition,startTransition]= useTransition();
-    // const isFavorited = props.tags.includes('favorite')
+    const [transition, startTransition] = useTransition();
+    const { imageData } = props
+
+    const isFavorited = imageData.tags.includes('favorite')
 
 
     return (
         <div className="relative">
-            <CldImage {...props} src={props.public_id}/>
-            {/* {isFavorited? */}
-             <FullHeart
-             onClick={()=>{
-                //  startTransition(()=>{
-                //      setAsFavoriteAction(props.public_id)
-                //  })
-                 
-             }}
-             className="absolute top-2 right-1 cursor-pointer hover:text-red-600"/>
-             :
-             <Heart 
-            onClick={()=>{
-                startTransition(()=>{
-                    setAsFavoriteAction(props.public_id)
-                })
-                
-            }}
-            className="absolute top-2 right-1 cursor-pointer hover:text-red-600"/>
-            {/* } */}
-            
+            <CldImage {...props} src={imageData.public_id} />
+            {isFavorited ?
+                <FullHeart
+                    onClick={() => {
+                        startTransition(() => {
+                            setAsFavoriteAction(imageData.public_id, false)
+                        })
+
+                    }}
+                    className="absolute top-2 right-1 cursor-pointer hover:text-white text-red-500" />
+                :
+                <Heart
+                    onClick={() => {
+                        startTransition(() => {
+                            setAsFavoriteAction(imageData.public_id, true)
+                        })
+
+                    }}
+                    className="absolute top-2 right-1 cursor-pointer hover:text-red-600" />
+            }
+
+
         </div>
     )
 

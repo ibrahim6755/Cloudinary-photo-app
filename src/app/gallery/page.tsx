@@ -16,8 +16,10 @@ export default async function Gallery() {
         .expression('resource_type:image')
         .sort_by('created_at', 'desc')
         .with_field("tags")
-        .max_results(20)
+        .max_results(30)
         .execute()) as { resources: SearchResult[] };
+        
+        console.log(results)
 
 
     return (

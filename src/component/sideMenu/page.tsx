@@ -44,12 +44,12 @@ const SideMenu = () => {
 
                             Album
                         </Button>
-                        <Button variant="ghost" className="w-full justify-start  hover:bg-gray-600">
+                       <a href="/favorites">
+                       <Button variant="ghost" className="w-full justify-start  hover:bg-gray-600">
                             <Heart/>
-
-
                             Favourite
                         </Button>
+                       </a>
                     </div>
                 </div>
             </div>
