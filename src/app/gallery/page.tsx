@@ -1,19 +1,21 @@
 
+import { CloudinaryImage } from './cloudinary-image';
 import UploadButton from './upload-button'
 import cloudinary from 'cloudinary'
-import CloudinaryImage from './cloudinary-image';
 
 
+export type SearchResult = {
+    public_id: string;
+    tags: string[]
+};
 
 export default async function Gallery() {
 
-    type SearchResult = {
-        public_id: string
-    };
-
+    
     const results = (await cloudinary.v2.search
         .expression('resource_type:image')
         .sort_by('created_at', 'desc')
+        .with_field("tags")
         .max_results(20)
         .execute()) as { resources: SearchResult[] };
 
@@ -34,14 +36,15 @@ export default async function Gallery() {
             <div className="grid grid-cols-4 gap-4 mt-14">
                 {
                     results.resources.map((result) => (
-                        <CloudinaryImage 
-                        key={result.public_id}
-                        src={result.public_id}
-                        publicId = {result.public_id}
-                        alt="this is an image"
-                        height="300"
-                        width="400"
+                        <CloudinaryImage
+                            key={result.public_id}
+                            imageData={result}
+                            width="400"
+                            height="300"
+                            alt="an image of something..."
+
                         />
+
 
                     ))
                 }
