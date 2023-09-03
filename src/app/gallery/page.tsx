@@ -1,5 +1,6 @@
 
-import { CloudinaryImage } from './cloudinary-image';
+import { ImageGrid } from '@/components/image-grid';
+import { CloudinaryImage } from '../../components/cloudinary-image';
 import UploadButton from './upload-button'
 import cloudinary from 'cloudinary'
 
@@ -11,14 +12,15 @@ export type SearchResult = {
 
 export default async function Gallery() {
 
-    
+
     const results = (await cloudinary.v2.search
         .expression('resource_type:image')
         .sort_by('created_at', 'desc')
         .with_field("tags")
         .max_results(30)
         .execute()) as { resources: SearchResult[] };
-        
+
+
     return (
         <section>
             <div className="div flex justify-between items-center">
@@ -32,23 +34,10 @@ export default async function Gallery() {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-4 gap-4 mt-14">
-                {
-                    results.resources.map((result) => (
-                        <CloudinaryImage
-                            key={result.public_id}
-                            imageData={result}
-                            width="400"
-                            height="300"
-                            alt="an image of something..."
+            <ImageGrid
+                images={results.resources}
+            />
 
-                        />
-
-
-                    ))
-                }
-
-            </div>
         </section>
     )
 }

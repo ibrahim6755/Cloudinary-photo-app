@@ -1,5 +1,5 @@
 
-import { CloudinaryImage } from '../gallery/cloudinary-image';
+import { CloudinaryImage } from '../../components/cloudinary-image';
 import cloudinary from 'cloudinary'
 import { SearchResult } from '../gallery/page';
 
