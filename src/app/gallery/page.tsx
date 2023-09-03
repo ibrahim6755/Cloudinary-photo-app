@@ -19,9 +19,6 @@ export default async function Gallery() {
         .max_results(30)
         .execute()) as { resources: SearchResult[] };
         
-        console.log(results)
-
-
     return (
         <section>
             <div className="div flex justify-between items-center">

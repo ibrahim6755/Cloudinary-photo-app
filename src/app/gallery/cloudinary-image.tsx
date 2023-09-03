@@ -33,11 +33,9 @@ export function CloudinaryImage(props: any & { imageData: SearchResult }) {
                         startTransition(() => {
                             setAsFavoriteAction(imageData.public_id, true)
                         })
-
                     }}
                     className="absolute top-2 right-1 cursor-pointer hover:text-red-600" />
             }
-
 
         </div>
     )
