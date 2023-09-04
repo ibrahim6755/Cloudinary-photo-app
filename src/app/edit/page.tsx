@@ -66,31 +66,31 @@ export default function EditPage({
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" crop="pad" fillBackground />
                     )
                 }
-                {/* {
+                {
                     transformation === "blur" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" blur="800" />
                     )
-                } */}
+                }
                 {
                     transformation === "zoom" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" zoompan="loop" />
                     )
                 }
-                {/* {
+                {
                     transformation === "grayscale" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" grayscale />
                     )
-                } */}
+                }
                 {
                     transformation === "removeBackground" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" removeBackground />
                     )
                 }
-                {/* {
+                {
                     transformation === "removeBackground" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" pixelate />
                     )
-                } */}
+                }
             </div>
         </section>
     )
