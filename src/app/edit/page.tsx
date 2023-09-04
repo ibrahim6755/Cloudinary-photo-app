@@ -47,7 +47,7 @@ export default function EditPage({
                     Grayscale
                 </Button>
                 <Button
-                    onClick={() => setTransformation("removeBackground")}
+                    onClick={() => setTransformation("pixelate")}
                     className="bg-gray-600 hover:bg-gray-400 ">
                     Pixelate
                 </Button>
