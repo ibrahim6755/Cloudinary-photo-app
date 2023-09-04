@@ -2,6 +2,7 @@
 import { CloudinaryImage } from '../../components/cloudinary-image';
 import cloudinary from 'cloudinary'
 import { SearchResult } from '../gallery/page';
+import { ForceRefresh } from '@/components/force-refresh';
 
 export default async function FavoritesPage() {
 
@@ -14,6 +15,7 @@ export default async function FavoritesPage() {
 
     return (
         <section>
+            <ForceRefresh/>
             <div className="div flex justify-between items-center">
                 <h1 className='text-4xl font-bold '>Favorite Images</h1>
 
@@ -24,6 +26,7 @@ export default async function FavoritesPage() {
                 <div className="grid grid-cols-4 gap-4 mt-14">
                     {results.resources.map((result) => (
                         <CloudinaryImage
+                        path="/favorites"
                             key={result.public_id}
                             imageData={result}
                             width="400"

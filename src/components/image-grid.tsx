@@ -19,6 +19,7 @@ function getColumns(colIndex: number) {
                 <div key={idx} className='flex flex-col gap-4'>
                     {column.map((result) => (
                         <CloudinaryImage
+                        path="/gallery"
                             key={result.public_id}
                             imageData={result}
                             width="400"

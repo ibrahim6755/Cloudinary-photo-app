@@ -3,6 +3,7 @@ import { ImageGrid } from '@/components/image-grid';
 import { CloudinaryImage } from '../../components/cloudinary-image';
 import UploadButton from './upload-button'
 import cloudinary from 'cloudinary'
+import SearchForm from './search-form';
 
 
 export type SearchResult = {
@@ -10,11 +11,16 @@ export type SearchResult = {
     tags: string[]
 };
 
-export default async function Gallery() {
-
+export default async function Gallery({
+    searchParams: { search },
+}: {
+    searchParams: {
+        search: string
+    }
+}) {
 
     const results = (await cloudinary.v2.search
-        .expression('resource_type:image')
+        .expression(`resource_type:image${search ?` AND tags=${search}`:""}`)
         .sort_by('created_at', 'desc')
         .with_field("tags")
         .max_results(30)
@@ -34,6 +40,9 @@ export default async function Gallery() {
                     </div>
                 </div>
             </div>
+            <SearchForm
+            initialSearch={search}
+            />
             <ImageGrid
                 images={results.resources}
             />

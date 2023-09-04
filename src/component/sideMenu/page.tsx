@@ -32,7 +32,7 @@ const SideMenu = () => {
                        <a href="/favorites">
                        <Button variant="ghost" className="w-full justify-start  hover:bg-gray-600">
                             <Heart/>
-                            Favourite
+                            Favorite
                         </Button>
                        </a>
                        <a href="/albums">

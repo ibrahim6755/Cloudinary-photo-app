@@ -14,6 +14,9 @@ export default function EditPage({
 
     const [transformation, setTransformation] = useState<undefined | "generative-fill" | " blur" | "zoom" | "grayscale" | "removeBackground" | "pixelate"
     >()
+
+    const [prompt, setPrompt] = useState('')
+    const[pendingPrompt,setPendingPrompt] = useState('')
     return (
 
         <section>
@@ -26,34 +29,44 @@ export default function EditPage({
                     className="bg-black ">
                     Clear All
                 </Button>
+                <div className="flex flex-col gap-3">
+                    <Button
+                        onClick={() =>{
+                             setTransformation("generative-fill")
+                            setPrompt(pendingPrompt)
+                         }}
+                        className="bg-gray-600 hover:bg-gray-500 text-black ">
+                        Apply Generative Fill
+                    </Button>
+                    <label htmlFor="input">Prompt</label>
+                    <input
+                    className="text-black text-sm p-2"
+                        value={pendingPrompt}
+                        onChange={(e) => setPendingPrompt(e.currentTarget.value)} />
+                </div>
                 <Button
-                    onClick={() => setTransformation("generative-fill")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
-                    Apply Generative Fill
-                </Button>
-                {/* <Button
                     onClick={() => setTransformation("blur")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
+                    className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Apply Blur
-                </Button> */}
+                </Button>
                 <Button
                     onClick={() => setTransformation("zoom")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
+                    className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Zoom Pan
                 </Button>
                 <Button
                     onClick={() => setTransformation("grayscale")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
+                    className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Grayscale
                 </Button>
                 <Button
                     onClick={() => setTransformation("pixelate")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
+                    className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Pixelate
                 </Button>
                 <Button
                     onClick={() => setTransformation("removeBackground")}
-                    className="bg-gray-600 hover:bg-gray-400 ">
+                    className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Remove Background <span className="text-yellow-500 ms-1 text-xs">Gold Member</span>
                 </Button>
 
@@ -63,7 +76,7 @@ export default function EditPage({
                 <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" />
                 {
                     transformation === "generative-fill" && (
-                        <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" crop="pad" fillBackground />
+                        <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" crop="pad" fillBackground={{prompt,}} />
                     )
                 }
                 {
@@ -87,7 +100,7 @@ export default function EditPage({
                     )
                 }
                 {
-                    transformation === "removeBackground" && (
+                    transformation === "pixelate" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" pixelate />
                     )
                 }

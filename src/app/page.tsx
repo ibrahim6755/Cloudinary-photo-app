@@ -15,7 +15,8 @@ export default function Home() {
   return (
     <>
       <main className="p-2 py-4">
-      <h1 className='text-4xl font-bold '> Photos Gallery</h1>
+      <h1 className='text-4xl font-bold '>Photos Gallery
+      <a href="/gallery">Gallery page</a></h1>
 
       </main>
     </>
