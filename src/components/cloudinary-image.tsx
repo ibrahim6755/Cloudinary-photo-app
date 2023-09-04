@@ -43,8 +43,8 @@ export function CloudinaryImage(props: any & { imageData: SearchResult }) {
                     }}
                     className="absolute top-2 left-2 cursor-pointer hover:text-red-600" />
             }
-            <ImageMenu
-            className="absolute right-2 top-2 rounded-lg" />
+            <ImageMenu 
+            image={imageData}/>
         </div>
     )
 
