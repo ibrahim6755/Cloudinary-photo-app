@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { CldImage } from "next-cloudinary"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function EditPage({
@@ -16,12 +17,12 @@ export default function EditPage({
     >()
 
     const [prompt, setPrompt] = useState('')
-    const[pendingPrompt,setPendingPrompt] = useState('')
+    const [pendingPrompt, setPendingPrompt] = useState('')
     return (
 
         <section>
             <div className="div flex justify-between items-center mb-6">
-                <h1 className='text-4xl font-bold '>Edit {publicId}</h1>
+                <h1 className='text-4xl font-bold '>Edit</h1>
             </div>
             <div className="flex gap-4">
                 <Button
@@ -31,24 +32,24 @@ export default function EditPage({
                 </Button>
                 <div className="flex flex-col gap-3">
                     <Button
-                        onClick={() =>{
-                             setTransformation("generative-fill")
+                        onClick={() => {
+                            setTransformation("generative-fill")
                             setPrompt(pendingPrompt)
-                         }}
+                        }}
                         className="bg-gray-600 hover:bg-gray-500 text-black ">
                         Apply Generative Fill
                     </Button>
-                    <label htmlFor="input">Prompt</label>
+                    {/* <label htmlFor="input">Prompt</label>
                     <input
                     className="text-black text-sm p-2"
                         value={pendingPrompt}
-                        onChange={(e) => setPendingPrompt(e.currentTarget.value)} />
+                        onChange={(e) => setPendingPrompt(e.currentTarget.value)} /> */}
                 </div>
-                <Button
+                {/* <Button
                     onClick={() => setTransformation("blur")}
                     className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Apply Blur
-                </Button>
+                </Button> */}
                 <Button
                     onClick={() => setTransformation("zoom")}
                     className="bg-gray-600 hover:bg-gray-500 text-black ">
@@ -64,11 +65,11 @@ export default function EditPage({
                     className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Pixelate
                 </Button>
-                <Button
+                {/* <Button
                     onClick={() => setTransformation("removeBackground")}
                     className="bg-gray-600 hover:bg-gray-500 text-black ">
                     Remove Background <span className="text-yellow-500 ms-1 text-xs">Gold Member</span>
-                </Button>
+                </Button> */}
 
             </div>
 
@@ -76,35 +77,39 @@ export default function EditPage({
                 <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" />
                 {
                     transformation === "generative-fill" && (
-                        <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" crop="pad" fillBackground={{prompt,}} />
+                        <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" crop="pad" fillBackground={{ prompt, }} />
                     )
                 }
-                {
+                {/* {
                     transformation === "blur" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" blur="800" />
                     )
-                }
+                } */}
                 {
                     transformation === "zoom" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" zoompan="loop" />
                     )
                 }
-                {
+                {/* {
                     transformation === "grayscale" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" grayscale />
                     )
-                }
+                } */}
                 {
                     transformation === "removeBackground" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" removeBackground />
                     )
                 }
-                {
+                {/* {
                     transformation === "pixelate" && (
                         <CldImage src={publicId} width="300" height="400" alt="an image of something" className="my-4" pixelate />
                     )
-                }
+                } */}
             </div>
+            <button className="bg-gray-200 text-black p-2" onClick={() => window.open(publicId, '_blank')}>
+                Download
+            </button>
+
         </section>
     )
 

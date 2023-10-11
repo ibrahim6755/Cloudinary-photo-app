@@ -15,12 +15,12 @@ export default async function Gallery({
     searchParams: { search },
 }: {
     searchParams: {
-        search: string
+        search?: string
     }
 }) {
 
     const results = (await cloudinary.v2.search
-        .expression(`resource_type:image${search ?` AND tags=${search}`:""}`)
+        .expression(`resource_type:image${search ? ` AND tags=${search}` : ""}`)
         .sort_by('created_at', 'desc')
         .with_field("tags")
         .max_results(30)
@@ -41,7 +41,7 @@ export default async function Gallery({
                 </div>
             </div>
             <SearchForm
-            initialSearch={search}
+                initialSearch={search}
             />
             <ImageGrid
                 images={results.resources}

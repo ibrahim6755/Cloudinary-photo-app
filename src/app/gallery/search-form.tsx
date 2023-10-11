@@ -18,7 +18,7 @@ function SearchForm({initialSearch}:{initialSearch :string}) {
 
     return (
         <form 
-        className="mt-4"
+        className="mt-4 rounded-md"
         onSubmit={(e)=>{
             e.preventDefault()
             router.replace(`/gallery?search=${encodeURIComponent(tagName)}`)
