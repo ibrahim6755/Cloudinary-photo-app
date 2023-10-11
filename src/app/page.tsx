@@ -9,6 +9,13 @@ export type SearchResult = {
   tags: string[]
 };
 
+export type UploadResult = {
+  info: {
+    public_id: string
+  },
+  event: 'success',
+
+}
 export default async function Home({
   searchParams: { search },
 }: {
