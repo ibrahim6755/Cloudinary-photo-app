@@ -2,6 +2,7 @@
 import { ImageGrid } from '@/components/image-grid';
 import UploadButton from './gallery/upload-button'
 import cloudinary from 'cloudinary'
+import { ForceRefresh } from '@/components/force-refresh';
 
 
 export type SearchResult = {
@@ -34,6 +35,7 @@ export default async function Home({
 
   return (
     <section>
+      <ForceRefresh />
       <div className="div flex justify-between items-center">
         <h1 className='text-4xl font-bold '>All Photos</h1>
         <div className='p-2 bg-gray-300 rounded text-black hover:bg-gray-300 hover:rounded hover:text-black'>
